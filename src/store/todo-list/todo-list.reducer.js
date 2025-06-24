@@ -14,6 +14,11 @@ export const listReducer = (state = INITIAL_STATE, action = {}) => {
         ...state,
         listItems: payload,
       };
+    case LIST_ACTION_TYPES.SET_ITEM:
+      return {
+        ...state,
+        item: payload,
+      };
     default:
       return state;
   }

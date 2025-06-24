@@ -1,14 +1,21 @@
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectItem,
+  selectListItems,
+} from "../../store/todo-list/todo-list.selector";
+import { setItem, setListItems } from "../../store/todo-list/todo-list.action";
 import { FaCalendarTimes, FaInfoCircle } from "react-icons/fa";
 
 const Todo = () => {
-  let item = "";
-  let items = [];
-  const addItem = (e) => {
-    item = e.target.value;
-  };
+  const dispatch = useDispatch();
+  const item = useSelector(selectItem);
+  const listItems = useSelector(selectListItems);
+
+  const itemValue = (e) => dispatch(setItem(e.target.value));
+
   const addItemOnClick = () => {
-    items.push(item);
-    console.log(items);
+    dispatch(setListItems(listItems, item));
+    dispatch(setItem(""));
   };
 
   return (
@@ -20,7 +27,8 @@ const Todo = () => {
               className="form-control form-control-lg border-0 add-todo-input bg-transparent rounded"
               type="text"
               placeholder="Add new .."
-              onChange={addItem}
+              onChange={itemValue}
+              value={item}
             />
           </div>
           <div className="col-auto m-0 px-2 d-flex align-items-center">

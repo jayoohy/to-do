@@ -7,7 +7,7 @@ export const selectListItems = createSelector(
   (todo) => todo.listItems
 );
 
-export const selectListItem = createSelector(
+export const selectItem = createSelector(
   [selectListReducer],
   (todo) => todo.item
 );

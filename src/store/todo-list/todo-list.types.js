@@ -1,3 +1,4 @@
 export const LIST_ACTION_TYPES = {
+  SET_ITEM: "SET_ITEM",
   SET_LIST_ITEMS: "SET_LIST_ITEMS",
 };
