@@ -7,7 +7,7 @@ const TodoList = () => {
   const listItems = useSelector(selectListItems);
 
   return (
-    <div className="row mx-1 px-5 pb-3 w-80">
+    <div className="row mx-1 px-5 pb-3 w-80 m-extra">
       <div className="col mx-auto">
         {listItems.length > 0 ? (
           listItems.map((item, index) => (

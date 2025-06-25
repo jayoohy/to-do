@@ -4,8 +4,8 @@
   font: 14px "Nunito", sans-serif;
   margin-top: 0;
   .dark-btn {
-    background-color: #fff;
-    color: #020631;
+    background-color: #4e516f;
+    color: #fff;
     margin: 2rem;
     &:hover {
       background-color: #ffffff77;
@@ -13,7 +13,10 @@
   }
 }
 .today {
-  font-size: 22px;
+  font-size: 2rem;
+  @media (max-width: 680px) {
+    font-size: 1rem;
+  }
 }
 
 .animated.bounceIn,
@@ -30,7 +33,8 @@
   margin: 20px 0;
 }
 .todo-list li {
-  background: #fff;
+  background: #4e516f;
+  color: #fff;
   border-radius: 5px;
   margin-bottom: 7px;
   position: relative;
@@ -147,10 +151,18 @@
   outline: none;
 }
 .form-control {
+  background: #4e516f;
   -webkit-box-shadow: none;
   box-shadow: none;
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
+}
+.form-control-extra {
+  background: #4e516f;
+  &:focus {
+    background: #4e516f;
+    color: #fff;
+  }
 }
 .form-control:focus {
   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);

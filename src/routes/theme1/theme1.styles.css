@@ -39,8 +39,26 @@ body {
 
 .todo-actions {
   visibility: hidden !important;
+  background-color: transparent;
 }
 
 .todo-item:hover .todo-actions {
   visibility: visible !important;
+}
+@media (max-width: 768px) {
+  .h1 {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+  }
+  .check {
+    font-size: 1rem;
+  }
+  .m-extra {
+    padding: 0 !important;
+  }
+  .form-extra {
+    overflow: scroll !important;
+    font-size: 18px !important;
+    padding: 0 !important;
+  }
 }

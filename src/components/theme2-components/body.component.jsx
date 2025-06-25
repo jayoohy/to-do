@@ -49,7 +49,7 @@ const Body = () => {
                   type="text"
                   rows="1"
                   cols="15"
-                  className="form-control"
+                  className="form-control form-control-extra"
                   placeholder="✍️ Add item..."
                   onChange={itemValue}
                   value={item}

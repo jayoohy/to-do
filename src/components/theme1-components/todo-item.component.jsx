@@ -43,7 +43,7 @@ const TodoItem = ({ item, index }) => {
   return (
     <div className="row px-3 align-items-center todo-item rounded">
       <div className="col-auto m-1 p-0 d-flex align-items-center">
-        <h2 className="m-0 p-0" onClick={toggleCheck}>
+        <h2 className="m-0 p-0 check" onClick={toggleCheck}>
           {item.checked ? (
             <i
               className="text-primary m-0 p-0"
@@ -69,7 +69,7 @@ const TodoItem = ({ item, index }) => {
         {edit ? (
           <input
             type="text"
-            className="form-control form-control-lg border-0 edit-todo-input rounded px-3"
+            className="form-control form-control-lg form-extra border-0 edit-todo-input rounded px-3"
             value={editValue}
             onChange={(e) => setEditValue(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -77,7 +77,7 @@ const TodoItem = ({ item, index }) => {
         ) : (
           <input
             type="text"
-            className={`form-control form-control-lg border-0 edit-todo-input bg-transparent rounded px-3 ${
+            className={`form-control form-control-lg form-extra border-0 edit-todo-input bg-transparent rounded px-3 ${
               item.checked && "strike"
             }`}
             readOnly
