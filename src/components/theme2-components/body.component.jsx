@@ -18,15 +18,34 @@ const Body = () => {
     dispatch(setListItems(listItems, item));
     dispatch(setItem(""));
   };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      dispatch(setListItems(listItems, item));
+      dispatch(setItem(""));
+    }
+  };
+
+  const weekday = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = weekday[new Date().getDay()];
+
   return (
     <div className="container">
-      <div className="today">Awesome, it's Friday 🍻</div>
+      <div className="today">Happy {day}!😁</div>
       <div className="row">
         <div className="col-md-4 offset-md-4 col-6 offset-3">
           <div className="add-control">
             <div className="form-group has-feedback">
               <div className="position-relative">
-                <textarea
+                <input
                   type="text"
                   rows="1"
                   cols="15"
@@ -34,38 +53,30 @@ const Body = () => {
                   placeholder="✍️ Add item..."
                   onChange={itemValue}
                   value={item}
-                >
-                  {item}
-                </textarea>
+                  onKeyDown={handleKeyDown}
+                />
                 <button
                   type="button"
                   className="position-absolute top-50 end-0 translate-middle-y pe-3 btn btn-link text-decoration-none"
                   title="Add item"
                   onClick={addItemOnClick}
                 >
-                  <FaPlus />
+                  <FaPlus className="close-icon" />
                 </button>
               </div>
             </div>
           </div>
-          {listItems ? (
+          {listItems.length > 0 ? (
             listItems.map((item, index) => (
               <ListItem key={index} index={index} item={item} />
             ))
           ) : (
-            <>
-              <p className="err text-danger text-center d-none">
-                <i>
-                  <FaExclamationCircle />
-                </i>{" "}
-                Oops! Please, enter name item
-              </p>
-              <p className="no-items text-muted text-center hidden">
-                <i>
-                  <FaBan />
-                </i>
-              </p>
-            </>
+            <p className="err text-danger text-center h4">
+              <i>
+                <FaExclamationCircle />
+              </i>{" "}
+              There's nothing to do!
+            </p>
           )}
         </div>
       </div>

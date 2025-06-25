@@ -1,6 +1,5 @@
 import { Link } from "react-router";
 import { FaCheck } from "react-icons/fa";
-import Options from "../../components/theme1-components/options.component";
 import TodoList from "../../components/theme1-components/todo-list.component";
 import Todo from "../../components/theme1-components/todo.component";
 import "./theme1.styles.css";
@@ -23,7 +22,6 @@ const Theme1 = () => {
           </div>
         </div>
         <Todo />
-        <Options />
         <TodoList />
       </div>
     </>

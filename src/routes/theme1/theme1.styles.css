@@ -2,7 +2,9 @@ body {
   font-family: "Open Sans", sans-serif;
   line-height: 1.6;
 }
-
+.strike {
+  text-decoration: line-through;
+}
 .add-todo-input,
 .edit-todo-input {
   outline: none;
@@ -23,14 +25,22 @@ body {
   font-size: 1.7rem !important;
 }
 
+.edit-todo-input.editing {
+  font-size: 1.7rem !important;
+  background-color: #fff;
+}
+
+.edit-todo-input.read-only {
+  font-size: 1.5rem;
+  color: gray;
+  background-color: transparent;
+  border: none;
+}
+
 .todo-actions {
   visibility: hidden !important;
 }
 
 .todo-item:hover .todo-actions {
   visibility: visible !important;
-}
-
-.todo-item.editing .todo-actions .edit-icon {
-  display: none !important;
 }

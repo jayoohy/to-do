@@ -18,6 +18,13 @@ const Todo = () => {
     dispatch(setItem(""));
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      dispatch(setListItems(listItems, item));
+      dispatch(setItem(""));
+    }
+  };
+
   return (
     <div className="row m-1 p-3">
       <div className="col col-11 mx-auto">
@@ -29,28 +36,8 @@ const Todo = () => {
               placeholder="Add new .."
               onChange={itemValue}
               value={item}
+              onKeyDown={handleKeyDown}
             />
-          </div>
-          <div className="col-auto m-0 px-2 d-flex align-items-center">
-            <label className="text-secondary my-2 p-0 px-1 view-opt-label due-date-label d-none">
-              Due date not set
-            </label>
-            <i
-              className="my-2 px-1 text-primary btn due-date-button"
-              data-toggle="tooltip"
-              data-placement="bottom"
-              title="Set a Due date"
-            >
-              <FaInfoCircle />
-            </i>
-            <i
-              className="my-2 px-1 text-danger btn clear-due-date-button d-none"
-              data-toggle="tooltip"
-              data-placement="bottom"
-              title="Clear Due date"
-            >
-              <FaCalendarTimes />
-            </i>
           </div>
           <div className="col-auto px-0 mx-0 mr-2">
             <button
